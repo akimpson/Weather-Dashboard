@@ -11,3 +11,7 @@ var getLatLon = function (city) {
     $(".searchHistory").append(searchHistoryEl);
 
     console.log(city);
+    var geoCodingUrl =
+      "http://api.openweathermap.org/geo/1.0/direct?q=" +
+      city +
+      "&appid=8b8fc4ff13d3364c2bca42400b9f7011";
