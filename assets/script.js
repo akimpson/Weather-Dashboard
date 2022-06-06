@@ -16,7 +16,7 @@ var getLatLon = function (city) {
       city +
       "&appid=8b8fc4ff13d3364c2bca42400b9f7011";
 
-      fetch(geoCodingUrl)
+    fetch(geoCodingUrl)
       .then(function (response) {
         return response.json();
       })
@@ -27,3 +27,38 @@ var getLatLon = function (city) {
         getWeather(latitude, longitude, city);
       });
   });
+
+  // Create a function to return the city;
+};
+var getWeather = function (latitude, longitude, city) {
+  $("#currentCity").text(city);
+  var weatherUrl =
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    latitude +
+    "&lon=" +
+    longitude +
+    "&units=imperial&appid=8b8fc4ff13d3364c2bca42400b9f7011";
+
+  fetch(weatherUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      $(".currentTemp").text(data.current.temp + " F");
+      $(".currentWind").text(data.current.wind_speed + " MPH");
+      $(".currentHumidity").text(data.current.humidity + " %");
+      $(".currentUvIndex").text(data.current.uvi);
+      if (data.current.uvi <= 2) {
+        $(".currentUvIndex").addClass("currentUvIndexGreen");
+      } else if (data.current.uvi >= 5) {
+        $(".currentUvIndex").addClass("currentUvIndexYellow");
+      } else if (data.current.uvi > 6) {
+        $(".currentUvIndex").addClass("currentUvIndexRed");
+      }
+    });
+};
+
+var getSearchHistory = function () {};
+
+getLatLon();
