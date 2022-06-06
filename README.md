@@ -6,7 +6,7 @@ HTML, CSS, and Javascript were used to create this application.
 
 ## Features
 
-- Users can search for city name and the current weather is displayed.
+- Users can search for city names and the current weather is displayed.
 - Five day weather forecast is displayed.
 - Cities are added to the search history after each search.
 - Weather symbols are displayed showing the weather for the current day.
