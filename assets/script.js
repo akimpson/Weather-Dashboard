@@ -15,3 +15,15 @@ var getLatLon = function (city) {
       "http://api.openweathermap.org/geo/1.0/direct?q=" +
       city +
       "&appid=8b8fc4ff13d3364c2bca42400b9f7011";
+
+      fetch(geoCodingUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        //console.log(data[0].lat, data[0].lon);
+        latitude = data[0].lat;
+        longitude = data[0].lon;
+        getWeather(latitude, longitude, city);
+      });
+  });
