@@ -24,3 +24,14 @@
   padding: 1rem;
   border-radius: 0;
 }
+
+/* City Search width */
+#search-city {
+  width: 80%;
+}
+
+/* fontawesome magnifying glass icon */
+#search-button-icon {
+  width: 15px;
+  display: inline-block;
+}
