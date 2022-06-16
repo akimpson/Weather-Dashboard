@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-    <!-- Jumbotron displays the City name upon search -->
+    <!-- Jumbotron to display the City name upon search -->
     <div id="header" class="jumbotron jumbotron-fluid text-container">
         <h1 id="header-text" class="display-2"></h1>
         <div id="artist-credit"></div>
@@ -24,24 +25,24 @@
     <div id="content" class="container">
         <div class="row">
 
-            <!-- Content on the left side with the city search box and appended cities -->
+            <!-- Left side content with city search box and appended cities -->
             <div id="content-left" class="col-md-3">
                 <form>
                     <label for="search-city">Search for a City:</label>
                     <div class="form-row">
                         <input id="search-city" class="form-control" name="city" value="Austin"></input>
-                        <!-- Fontawesome magnifying glass -->
+                        <!-- fontawesome magnifying glass -->
                         <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
                 <div id="search-error"></div>
-                <!-- List of prior searched cities -->
+                <!-- list of prior searched cities -->
                 <ul id="city-results" class="list-group mt-4"></ul>
-                <!-- Clear storage button -->
+                <!-- clear storage button -->
                 <a id="clear-storage" href="#"></a>    
             </div>
 
-            <!-- Content on the right side showing the current weather and five day forecast displays upon search -->
+            <!-- Right side content showing current weather and five day forecast displays on search -->
             <div id="content-right" class="col-md-9 pt-4">
                 <!-- Current weather displayed on top -->
                 <div id="current-weather" class="border rounded"></div>
