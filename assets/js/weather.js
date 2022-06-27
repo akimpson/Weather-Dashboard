@@ -43,35 +43,35 @@ function searchHistory() {
 }
 // Create local storage functions.
 function addToHistory(search) {
-    if (citySearch.indexOf(search) !== -1) {
-      return;
-    }
-    citySearch.push(search);
-    localStorage.setItem("search-history", JSON.stringify(citySearch));
-    searchHistory();
+  if (citySearch.indexOf(search) !== -1) {
+    return;
   }
-  function initHistory() {
-    var localHistory = localStorage.getItem("search-history");
-    if (localHistory) {
-      citySearch = JSON.parse(localHistory);
-    }
-    searchHistory();
+  citySearch.push(search);
+  localStorage.setItem("search-history", JSON.stringify(citySearch));
+  searchHistory();
+}
+function initHistory() {
+  var localHistory = localStorage.getItem("search-history");
+  if (localHistory) {
+    citySearch = JSON.parse(localHistory);
   }
-  
-  function renderFunctions(city, data) {
-    currentWeather(city, data.current, data.timeZone);
-    forecastWeather(data.daily, data.timezone);
-  }
-  
-  function forecastCard(forecast, timezone) {
-    var unixTime = forecast.dt;
-    var wind = forecast.wind_speed;
-    var { humidity } = forecast;
-    var tempf = forecast.temp.day;
-    var iconDescription = forecast.weather[0].description;
-    var iconUrl = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
+  searchHistory();
+}
 
-   // Create card.
+function renderFunctions(city, data) {
+  currentWeather(city, data.current, data.timeZone);
+  forecastWeather(data.daily, data.timezone);
+}
+
+function forecastCard(forecast, timezone) {
+  var unixTime = forecast.dt;
+  var wind = forecast.wind_speed;
+  var { humidity } = forecast;
+  var tempf = forecast.temp.day;
+  var iconDescription = forecast.weather[0].description;
+  var iconUrl = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
+
+  // Create card.
   var col = document.createElement("div");
   var card = document.createElement("div");
   var cardBody = document.createElement("div");
@@ -92,4 +92,29 @@ function addToHistory(search) {
   cardTitle.setAttribute("class", "card-title");
   tempEl.setAttribute("class", "card-text");
   windEl.setAttribute("class", "card-tex");
-  humidityEl.setAttribute("class", "card-text"); 
+  humidityEl.setAttribute("class", "card-text");
+
+  // Add content.
+  cardTitle.textContent = dayjs.unix(unixTime).tz(timezone).format("M/D/YYYY");
+  weatherIcon.setAttribute("src", iconUrl);
+  weatherIcon.setAttribute("alt", iconDescription);
+  tempEl.textContent = `Temp: ${tempf}°F`;
+  windEl.textContent = `Wind: ${wind} MPH`;
+  humidityEl.textContent = `Humidity: ${humidity} %`;
+
+  forecastBox.append(col);
+}
+
+function forecastWeather(dailyForecast, timezone) {
+    // establish start and end of day
+    var startDay = dayjs().tz(timezone).add(1, "day").startOf("day").unix();
+    var endDay = dayjs().tz(timezone).add(6, "day").startOf("day").unix();
+  
+    var colHeading = document.createElement("div");
+    var heading = document.createElement("h3");
+    colHeading.setAttribute("class", "col-12");
+    heading.textContent = "5 Day Forecast";
+    colHeading.append(heading);
+  
+    forecastBox.innerHTML = "";
+    forecastBox.append(colHeading);
