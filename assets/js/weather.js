@@ -220,3 +220,13 @@ function fetchGeo(search) {
       console.error(err);
     });
 }
+
+function formSubmit(e) {
+  if (!searchInput.value) {
+    return;
+  }
+  e.preventDefault();
+  var search = searchInput.value.trim();
+  fetchGeo(search);
+  searchInput.value = "";
+}
