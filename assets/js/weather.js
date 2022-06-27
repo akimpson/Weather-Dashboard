@@ -201,3 +201,22 @@ function getWeather(location) {
       console.error(err);
     });
 }
+
+function fetchGeo(search) {
+  var apiUrl = `${weatherApi}/geo/1.0/direct?q=${search}&limit=5&appid=${weatherKey}`;
+  fetch(apiUrl)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      if (!data[0]) {
+        alert("city not found");
+      } else {
+        addToHistory(search);
+        getWeather(data[0]);
+      }
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+}
