@@ -184,3 +184,20 @@ function currentWeather(city, weather, timezone) {
   todayBox.innerHTML = "";
   todayBox.append(card);
 }
+
+function getWeather(location) {
+  var { lat, lon } = location;
+  var city = location.name;
+
+  var apiUrl = `${weatherApi}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${weatherKey}`;
+  fetch(apiUrl)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      renderFunctions(city, data);
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+}
