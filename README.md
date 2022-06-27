@@ -19,7 +19,7 @@ JQuery: https://jquery.com/
 
 ## 🔗 Links
 
-This site was built using [GitHub Pages](https://akimpson.github.io/weatherdashboard/).
+This site was built using [GitHub Pages](https://akimpson.github.io/weather-dashboard/).
 More of my work can be found at (https://github.com/akimpson)
 
 ## Screenshot
