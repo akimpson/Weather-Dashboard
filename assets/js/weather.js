@@ -41,3 +41,34 @@ function searchHistory() {
     historyBox.append(btn);
   }
 }
+// Create local storage functions.
+function addToHistory(search) {
+    if (citySearch.indexOf(search) !== -1) {
+      return;
+    }
+    citySearch.push(search);
+    localStorage.setItem("search-history", JSON.stringify(citySearch));
+    searchHistory();
+  }
+  function initHistory() {
+    var localHistory = localStorage.getItem("search-history");
+    if (localHistory) {
+      citySearch = JSON.parse(localHistory);
+    }
+    searchHistory();
+  }
+  
+  function renderFunctions(city, data) {
+    currentWeather(city, data.current, data.timeZone);
+    forecastWeather(data.daily, data.timezone);
+  }
+  
+  function forecastCard(forecast, timezone) {
+    var unixTime = forecast.dt;
+    var wind = forecast.wind_speed;
+    var { humidity } = forecast;
+    var tempf = forecast.temp.day;
+    var iconDescription = forecast.weather[0].description;
+    var iconUrl = `https://openweathermap.org/img/w/${forecast.weather[0].icon}.png`;
+
+    
