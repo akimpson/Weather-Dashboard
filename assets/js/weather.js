@@ -28,3 +28,16 @@ var historyBox = document.getElementById("history");
 
 function searchHistory() {
   historyBox.innerHTML = "";
+
+  // create buttons
+  for (var i = citySearch.length - 1; i >= 0; i--) {
+    var btn = document.createElement("button");
+    btn.setAttribute("type", "button");
+    btn.setAttribute("aria-controls", "today forecast");
+    btn.classList.add("history-btn", "btn-history");
+
+    btn.setAttribute("data-search", citySearch[i]);
+    btn.textContent = citySearch[i];
+    historyBox.append(btn);
+  }
+}
