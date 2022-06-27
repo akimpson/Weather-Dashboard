@@ -106,15 +106,23 @@ function forecastCard(forecast, timezone) {
 }
 
 function forecastWeather(dailyForecast, timezone) {
-    // establish start and end of day
-    var startDay = dayjs().tz(timezone).add(1, "day").startOf("day").unix();
-    var endDay = dayjs().tz(timezone).add(6, "day").startOf("day").unix();
-  
-    var colHeading = document.createElement("div");
-    var heading = document.createElement("h3");
-    colHeading.setAttribute("class", "col-12");
-    heading.textContent = "5 Day Forecast";
-    colHeading.append(heading);
-  
-    forecastBox.innerHTML = "";
-    forecastBox.append(colHeading);
+  // establish start and end of day
+  var startDay = dayjs().tz(timezone).add(1, "day").startOf("day").unix();
+  var endDay = dayjs().tz(timezone).add(6, "day").startOf("day").unix();
+
+  var colHeading = document.createElement("div");
+  var heading = document.createElement("h3");
+  colHeading.setAttribute("class", "col-12");
+  heading.textContent = "5 Day Forecast";
+  colHeading.append(heading);
+
+  forecastBox.innerHTML = "";
+  forecastBox.append(colHeading);
+
+  // Create for loop for the daily forecast.
+  for (var i = 0; i < dailyForecast.length; i++) {
+    if (dailyForecast[i].dt >= startDay && dailyForecast[i].dt < endDay) {
+      forecastCard(dailyForecast[i], timezone);
+    }
+  }
+}
