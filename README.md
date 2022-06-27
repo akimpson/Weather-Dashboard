@@ -24,4 +24,6 @@ More of my work can be found at (https://github.com/akimpson)
 
 ## Screenshot
 
-![Weather Dashboard Screenshot](https://user-images.githubusercontent.com/98501990/175842306-a5f1d704-7a99-4b28-9e70-38dce74456aa.png)
+![Weather Dashboard](./assets/images/WeatherDashboardScreenshot.png)
+
+<!-- ![Weather Dashboard Screenshot](https://user-images.githubusercontent.com/98501990/175842306-a5f1d704-7a99-4b28-9e70-38dce74456aa.png) -->
