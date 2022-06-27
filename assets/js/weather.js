@@ -230,3 +230,16 @@ function formSubmit(e) {
   fetchGeo(search);
   searchInput.value = "";
 }
+
+function historyClick(e) {
+  if (!e.target.matches(".btn-history")) {
+    return;
+  }
+  var btn = e.target;
+  var search = btn.getAttribute("data-search");
+  fetchGeo(search);
+}
+// history.addEventListener("click", historyClick);
+initHistory();
+searchForm.addEventListener("submit", formSubmit);
+historyBox.addEventListener("click", historyClick);
