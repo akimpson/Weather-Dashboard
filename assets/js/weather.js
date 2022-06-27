@@ -126,3 +126,8 @@ function forecastWeather(dailyForecast, timezone) {
     }
   }
 }
+
+function currentWeather(city, weather, timezone) {
+    var date = dayjs().tz(timezone).format("M/D/YYYY");
+
+    
