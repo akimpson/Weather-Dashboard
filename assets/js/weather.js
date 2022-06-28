@@ -29,7 +29,7 @@ var historyBox = document.getElementById("history");
 function searchHistory() {
   historyBox.innerHTML = "";
 
-  // create buttons
+  // Create buttons.
   for (var i = citySearch.length - 1; i >= 0; i--) {
     var btn = document.createElement("button");
     btn.setAttribute("type", "button");
@@ -106,7 +106,7 @@ function forecastCard(forecast, timezone) {
 }
 
 function forecastWeather(dailyForecast, timezone) {
-  // establish start and end of day
+  // Establish start & end of day.
   var startDay = dayjs().tz(timezone).add(1, "day").startOf("day").unix();
   var endDay = dayjs().tz(timezone).add(6, "day").startOf("day").unix();
 
@@ -170,7 +170,7 @@ function currentWeather(city, weather, timezone) {
   uvEl.textContent = "uv index: ";
   uviBtn.classList.add("btn", "btn-sm");
 
-  // UV conditional
+  // UV conditional.
   if (uvi < 3) {
     uviBtn.classList.add("btn-success");
   } else if (uvi < 7) {
