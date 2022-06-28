@@ -15,7 +15,6 @@ HTML, CSS, and Javascript were used to create this application.
 ## Libraries
 
 Bootstrap: https://getbootstrap.com/ <br>
-JQuery: https://jquery.com/
 
 ## 🔗 Links
 
