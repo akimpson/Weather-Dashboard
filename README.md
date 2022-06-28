@@ -18,7 +18,7 @@ Bootstrap: https://getbootstrap.com/ <br>
 
 ## 🔗 Links
 
-This site was built using [GitHub Pages](https://akimpson.github.io/weather-dashboard/).
+This site was built using [GitHub Pages](https://akimpson.github.io/Weather-Dashboard/).
 More of my work can be found at (https://github.com/akimpson)
 
 ## Screenshot
